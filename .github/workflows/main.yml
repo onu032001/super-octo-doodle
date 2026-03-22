@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+    inputs:
+      copyright:
+        description: 'Copyright'
+        required: true
+        type: string
+jobs:
+  student:
+    name: edited github pages by student; site may update
+    runs-on: windows-latest
+    steps:
+      - run: |
+          echo $COPYRIGHT
+        env:
+          COPYRIGHT: ${{ inputs.copyright }}
